@@ -2,3 +2,9 @@
 .venv
 __pycache__/
 *.pyc
+*.DS_Store
+
+layers/shared/python/*
+!layers/shared/python/config.py
+!layers/shared/python/database.py
+!layers/shared/python/helpers.py
