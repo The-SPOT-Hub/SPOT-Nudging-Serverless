@@ -20,7 +20,7 @@ def lambda_handler(event, context):
     # Validate request
     if not is_request_valid(
         request_body=event['body'].encode('utf-8'),
-        timestamp=event['headers']['X-Slack-Request-Timestamp'],
+        timestamp=event['headers']['x-slack-request-timestamp'],
         slack_signature=event['headers']['x-slack-signature']
     ):
         return {
