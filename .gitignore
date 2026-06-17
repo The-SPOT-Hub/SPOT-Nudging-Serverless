@@ -8,3 +8,13 @@ layers/shared/python/*
 !layers/shared/python/config.py
 !layers/shared/python/database.py
 !layers/shared/python/helpers.py
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+
+# Zip files
+*.zip
