@@ -1,15 +1,15 @@
 import os
 
 # Slack
-spot_channel_id = os.environ['SLACK_SPOT_CHANNEL_ID']
-slack_bot_token = os.environ['SLACK_BOT_TOKEN']
-slack_app_id = os.environ['SLACK_APP_ID']
+spot_channel_id = os.environ.get('SLACK_SPOT_CHANNEL_ID')
+slack_bot_token = os.environ.get('SLACK_BOT_TOKEN')
+slack_app_id = os.environ.get('SLACK_APP_ID')
 get_thread_messages_endpoint = "https://slack.com/api/conversations.replies"
 post_message_endpoint = "https://slack.com/api/chat.postMessage"
 get_history_endpoint = "https://slack.com/api/conversations.history"
 get_permalink_endpoint = "https://slack.com/api/chat.getPermalink"
 
-slack_signing_secret = os.environ['SLACK_SIGNING_SECRET']
+slack_signing_secret = os.environ.get('SLACK_SIGNING_SECRET')
 slack_signing_version = "v0"
 
 # Map courses to Slack channel IDs
@@ -64,7 +64,7 @@ course_channel_post = [
 ]
 
 # DynamoDB
-dynamodb_table_name = os.environ['DYNAMODB_TABLE_NAME']
+dynamodb_table_name = os.environ.get('DYNAMODB_TABLE_NAME')
 
 # SQS
-sqs_queue_url = os.environ['SQS_QUEUE_URL']
+sqs_queue_url = os.environ.get('SQS_QUEUE_URL')
