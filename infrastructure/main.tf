@@ -71,7 +71,7 @@ resource "aws_lambda_layer_version" "spotNudgingShared" {
   layer_name = "spotNudgingShared"
   filename = data.archive_file.shared_layer.output_path
   compatible_runtimes = ["python3.14", "python3.12", "python3.13"]
-  description = "Updated layer to include requests package"
+  description = "Includes config, database, and helpers modules + requests package"
 }
 
 # ---------- Lambda functions ----------
