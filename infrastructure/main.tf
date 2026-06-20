@@ -70,6 +70,7 @@ data "archive_file" "shared_layer" {
 resource "aws_lambda_layer_version" "spotNudgingShared" {
   layer_name = "spotNudgingShared"
   filename = data.archive_file.shared_layer.output_path
+  source_code_hash = data.archive_file.shared_layer.output_base64sha256
   compatible_runtimes = ["python3.14", "python3.12", "python3.13"]
   description = "Includes config, database, and helpers modules + requests package"
 }
@@ -92,6 +93,7 @@ data "archive_file" "processor_lambda_py" {
 
 resource "aws_lambda_function" "spotNudgingReceiver" {
   filename = data.archive_file.receiver_lambda_py.output_path
+  source_code_hash = data.archive_file.receiver_lambda_py.output_base64sha256
   function_name = "spotNudgingReceiver"
   role = aws_iam_role.spot_nudging_lambda_role.arn
   handler = "handler.lambda_handler"
@@ -110,6 +112,7 @@ resource "aws_lambda_function" "spotNudgingReceiver" {
 
 resource "aws_lambda_function" "spotFunctionProcessor" {
   filename = data.archive_file.processor_lambda_py.output_path
+  source_code_hash = data.archive_file.processor_lambda_py.output_base64sha256
   function_name = "spotFunctionProcessor"
   role = aws_iam_role.spot_nudging_lambda_role.arn
   handler = "handler.lambda_handler"
