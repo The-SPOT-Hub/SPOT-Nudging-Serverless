@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 *.DS_Store
+build/
 
 layers/shared/python/*
 !layers/shared/python/config.py

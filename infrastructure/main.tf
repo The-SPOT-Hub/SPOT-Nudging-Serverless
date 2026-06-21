@@ -63,8 +63,8 @@ resource "aws_sqs_queue" "spot_nudging_queue" {
 
 data "archive_file" "shared_layer" {
   type = "zip"
-  source_dir = "${path.module}/../layers/shared/python"
-  output_path = "${path.module}/../layers/shared/shared_layer.zip"
+  source_dir = "${path.module}/../layers/shared"
+  output_path = "${path.module}/../build/shared_layer.zip"
 }
 
 resource "aws_lambda_layer_version" "spotNudgingShared" {
